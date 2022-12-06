@@ -1,0 +1,37 @@
+{
+  "name": "ghg-wallet",
+  "version": "0.5.0",
+  "description": "DID/SSI based handling of greenhouse gas emissions and savings",
+  "main": "lib.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/energychain/ghg-wallet.git"
+  },
+  "keywords": [
+    "ghg",
+    "did",
+    "ssi",
+    "tydids",
+    "stromdao"
+  ],
+  "bin": {
+    "ghg-certRequest":"./cli-ghgCertRequest.js"
+  },
+  "author": "STROMDAO GmbH <dev@stromdao.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/energychain/ghg-wallet/issues"
+  },
+  "homepage": "https://github.com/energychain/ghg-wallet#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "command-line-args": "^5.2.1",
+    "tydids": "^1.0.11"
+  },
+  "devDependencies": {
+    "mocha": "^10.1.0"
+  }
+}
