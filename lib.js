@@ -60,5 +60,25 @@ exports.ghgwallet = async function(options) {
         return response.data;
     }
 
+    app_wallet.app.validateCertificateSignatures = async function(certificate) {
+        let res = null;
+        const signee = certificate.owner.payload.issuer.toLowerCase();
+
+        const check = async function(path) {
+            return (await app_wallet.tydids.verifyMessage(path["payload"],path["signature"])).toLowerCase();
+        }
+
+        if(await check(certificate.hash) !== signee) { res = "invalid certificate.hash.signature"; }
+        if(await check(certificate.owner) !== signee) { res = "invalid certificate.owner.signature"; }
+        if(await check(certificate.presentations.type) !== signee) { res = "invalid certificate.presentations.type.signature"; }
+        if(await check(certificate.presentations.context) !== signee) { res = "invalid certificate.presentations.context.signature"; }
+        if(await check(certificate.presentations.location) !== signee) { res = "invalid certificate.presentations.location.signature"; }
+        if(await check(certificate.presentations.consumption) !== signee) { res = "invalid certificate.presentations.consumption.signature"; }
+        if(await check(certificate.presentations.ghg) !== signee) { res = "invalid certificate.presentations.ghg.signature"; }
+        if(await check(certificate.presentations.did) !== signee) { res = "invalid certificate.presentations.did.signature"; }
+
+        return res;
+    }
+
     return app_wallet;
 }

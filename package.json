@@ -1,6 +1,6 @@
 {
   "name": "ghg-wallet",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "DID/SSI based handling of greenhouse gas emissions and savings",
   "main": "lib.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "stromdao"
   ],
   "bin": {
-    "ghg-certRequest":"./cli-ghgCertRequest.js"
+    "ghg-certRequest":"./cli-ghgCertRequest.js",
+    "ghg-certValidator":"./cli-ghgCertValidator.js"
   },
   "author": "STROMDAO GmbH <dev@stromdao.com>",
   "license": "Apache-2.0",
