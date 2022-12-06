@@ -1,0 +1,1950 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "description":"Greenhouse Gas Emission and Savings proof",
+    "properties": {
+      "hash": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "digital signature of payload property given by issuer"
+          },
+          "payload": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "signature",
+          "payload"
+        ]
+      },
+      "owner": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "digital signature of payload property given by issuer"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "owner": {
+                "type": "string"
+              },
+              "issuer": {
+                "type": "string"
+              },
+              "hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "owner",
+              "issuer",
+              "hash"
+            ]
+          }
+        },
+        "required": [
+          "signature",
+          "payload"
+        ]
+      },
+      "context": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "digital signature of payload property given by issuer"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "usage": {
+                "type": "string"
+              },
+              "hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "usage",
+              "hash"
+            ]
+          }
+        },
+        "required": [
+          "signature",
+          "payload"
+        ]
+      },
+      "did": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "digital signature of payload property given by issuer"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "registry": {
+                "type": "string"
+              },
+              "uid": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "ghgtoken": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "certificates": {
+                    "type": "string"
+                  },
+                  "savings": {
+                    "type": "string"
+                  },
+                  "emissions": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "address",
+                  "certificates",
+                  "savings",
+                  "emissions"
+                ]
+              },
+              "nft": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string",
+                    "description": "digital signature of payload property given by issuer"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "tx": {
+                        "type": "object",
+                        "properties": {
+                          "nonce": {
+                            "type": "integer"
+                          },
+                          "gasPrice": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hex": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hex"
+                            ]
+                          },
+                          "gasLimit": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hex": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hex"
+                            ]
+                          },
+                          "to": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hex": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hex"
+                            ]
+                          },
+                          "data": {
+                            "type": "string"
+                          },
+                          "chainId": {
+                            "type": "integer"
+                          },
+                          "v": {
+                            "type": "integer"
+                          },
+                          "r": {
+                            "type": "string"
+                          },
+                          "s": {
+                            "type": "string"
+                          },
+                          "from": {
+                            "type": "string"
+                          },
+                          "hash": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "null"
+                          },
+                          "confirmations": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "nonce",
+                          "gasPrice",
+                          "gasLimit",
+                          "to",
+                          "value",
+                          "data",
+                          "chainId",
+                          "v",
+                          "r",
+                          "s",
+                          "from",
+                          "hash",
+                          "type",
+                          "confirmations"
+                        ]
+                      },
+                      "receipt": {
+                        "type": "object",
+                        "properties": {
+                          "to": {
+                            "type": "string"
+                          },
+                          "from": {
+                            "type": "string"
+                          },
+                          "contractAddress": {
+                            "type": "null"
+                          },
+                          "transactionIndex": {
+                            "type": "integer"
+                          },
+                          "gasUsed": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hex": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hex"
+                            ]
+                          },
+                          "logsBloom": {
+                            "type": "string"
+                          },
+                          "blockHash": {
+                            "type": "string"
+                          },
+                          "transactionHash": {
+                            "type": "string"
+                          },
+                          "logs": {
+                            "type": "array",
+                            "items": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "transactionIndex": {
+                                    "type": "integer"
+                                  },
+                                  "blockNumber": {
+                                    "type": "integer"
+                                  },
+                                  "transactionHash": {
+                                    "type": "string"
+                                  },
+                                  "address": {
+                                    "type": "string"
+                                  },
+                                  "topics": {
+                                    "type": "array",
+                                    "items": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  "data": {
+                                    "type": "string"
+                                  },
+                                  "logIndex": {
+                                    "type": "integer"
+                                  },
+                                  "blockHash": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "transactionIndex",
+                                  "blockNumber",
+                                  "transactionHash",
+                                  "address",
+                                  "topics",
+                                  "data",
+                                  "logIndex",
+                                  "blockHash"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "transactionIndex": {
+                                    "type": "integer"
+                                  },
+                                  "blockNumber": {
+                                    "type": "integer"
+                                  },
+                                  "transactionHash": {
+                                    "type": "string"
+                                  },
+                                  "address": {
+                                    "type": "string"
+                                  },
+                                  "topics": {
+                                    "type": "array",
+                                    "items": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  "data": {
+                                    "type": "string"
+                                  },
+                                  "logIndex": {
+                                    "type": "integer"
+                                  },
+                                  "blockHash": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "transactionIndex",
+                                  "blockNumber",
+                                  "transactionHash",
+                                  "address",
+                                  "topics",
+                                  "data",
+                                  "logIndex",
+                                  "blockHash"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "transactionIndex": {
+                                    "type": "integer"
+                                  },
+                                  "blockNumber": {
+                                    "type": "integer"
+                                  },
+                                  "transactionHash": {
+                                    "type": "string"
+                                  },
+                                  "address": {
+                                    "type": "string"
+                                  },
+                                  "topics": {
+                                    "type": "array",
+                                    "items": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  "data": {
+                                    "type": "string"
+                                  },
+                                  "logIndex": {
+                                    "type": "integer"
+                                  },
+                                  "blockHash": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "transactionIndex",
+                                  "blockNumber",
+                                  "transactionHash",
+                                  "address",
+                                  "topics",
+                                  "data",
+                                  "logIndex",
+                                  "blockHash"
+                                ]
+                              }
+                            ]
+                          },
+                          "blockNumber": {
+                            "type": "integer"
+                          },
+                          "confirmations": {
+                            "type": "integer"
+                          },
+                          "cumulativeGasUsed": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hex": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hex"
+                            ]
+                          },
+                          "effectiveGasPrice": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hex": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hex"
+                            ]
+                          },
+                          "status": {
+                            "type": "integer"
+                          },
+                          "type": {
+                            "type": "integer"
+                          },
+                          "byzantium": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "to",
+                          "from",
+                          "contractAddress",
+                          "transactionIndex",
+                          "gasUsed",
+                          "logsBloom",
+                          "blockHash",
+                          "transactionHash",
+                          "logs",
+                          "blockNumber",
+                          "confirmations",
+                          "cumulativeGasUsed",
+                          "effectiveGasPrice",
+                          "status",
+                          "type",
+                          "byzantium"
+                        ]
+                      },
+                      "tokenId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "address",
+                      "tx",
+                      "receipt",
+                      "tokenId"
+                    ]
+                  }
+                },
+                "required": [
+                  "signature",
+                  "payload"
+                ]
+              },
+              "hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "registry",
+              "uid",
+              "schema",
+              "method",
+              "ghgtoken",
+              "nft",
+              "hash"
+            ]
+          }
+        },
+        "required": [
+          "signature",
+          "payload"
+        ]
+      },
+      "presentations": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "string"
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          },
+          "context": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "usage": {
+                    "type": "string"
+                  },
+                  "hash": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "usage",
+                  "hash"
+                ]
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "zip": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "meloid": {
+                    "type": "string"
+                  },
+                  "hash": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "zip",
+                  "city",
+                  "country",
+                  "meloid",
+                  "hash"
+                ]
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          },
+          "consumption": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "type": "string"
+                  },
+                  "actual": {
+                    "type": "integer"
+                  },
+                  "time": {
+                    "type": "integer"
+                  },
+                  "hash": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unit",
+                  "actual",
+                  "time",
+                  "hash"
+                ]
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          },
+          "ghg": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "factors": {
+                    "type": "object",
+                    "properties": {
+                      "unit": {
+                        "type": "string"
+                      },
+                      "actual": {
+                        "type": "object",
+                        "properties": {
+                          "grid": {
+                            "type": "number"
+                          },
+                          "eco": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "grid",
+                          "eco"
+                        ]
+                      },
+                      "base": {
+                        "type": "object",
+                        "properties": {
+                          "grid": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "grid"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "unit",
+                      "actual",
+                      "base"
+                    ]
+                  },
+                  "base": {
+                    "type": "object",
+                    "properties": {
+                      "unit": {
+                        "type": "string"
+                      },
+                      "grid": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "unit",
+                      "grid"
+                    ]
+                  },
+                  "actual": {
+                    "type": "object",
+                    "properties": {
+                      "unit": {
+                        "type": "string"
+                      },
+                      "grid": {
+                        "type": "integer"
+                      },
+                      "eco": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "unit",
+                      "grid",
+                      "eco"
+                    ]
+                  },
+                  "saving": {
+                    "type": "object",
+                    "properties": {
+                      "unit": {
+                        "type": "string"
+                      },
+                      "grid": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "unit",
+                      "grid"
+                    ]
+                  },
+                  "scope": {
+                    "type": "integer"
+                  },
+                  "hash": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "factors",
+                  "base",
+                  "actual",
+                  "saving",
+                  "scope",
+                  "hash"
+                ]
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          },
+          "did": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "registry": {
+                    "type": "string"
+                  },
+                  "uid": {
+                    "type": "string"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "ghgtoken": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "certificates": {
+                        "type": "string"
+                      },
+                      "savings": {
+                        "type": "string"
+                      },
+                      "emissions": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "address",
+                      "certificates",
+                      "savings",
+                      "emissions"
+                    ]
+                  },
+                  "nft": {
+                    "type": "object",
+                    "properties": {
+                      "signature": {
+                        "type": "string"
+                      },
+                      "payload": {
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "type": "string"
+                          },
+                          "tx": {
+                            "type": "object",
+                            "properties": {
+                              "nonce": {
+                                "type": "integer"
+                              },
+                              "gasPrice": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "hex": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "hex"
+                                ]
+                              },
+                              "gasLimit": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "hex": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "hex"
+                                ]
+                              },
+                              "to": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "hex": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "hex"
+                                ]
+                              },
+                              "data": {
+                                "type": "string"
+                              },
+                              "chainId": {
+                                "type": "integer"
+                              },
+                              "v": {
+                                "type": "integer"
+                              },
+                              "r": {
+                                "type": "string"
+                              },
+                              "s": {
+                                "type": "string"
+                              },
+                              "from": {
+                                "type": "string"
+                              },
+                              "hash": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "null"
+                              },
+                              "confirmations": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "nonce",
+                              "gasPrice",
+                              "gasLimit",
+                              "to",
+                              "value",
+                              "data",
+                              "chainId",
+                              "v",
+                              "r",
+                              "s",
+                              "from",
+                              "hash",
+                              "type",
+                              "confirmations"
+                            ]
+                          },
+                          "receipt": {
+                            "type": "object",
+                            "properties": {
+                              "to": {
+                                "type": "string"
+                              },
+                              "from": {
+                                "type": "string"
+                              },
+                              "contractAddress": {
+                                "type": "null"
+                              },
+                              "transactionIndex": {
+                                "type": "integer"
+                              },
+                              "gasUsed": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "hex": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "hex"
+                                ]
+                              },
+                              "logsBloom": {
+                                "type": "string"
+                              },
+                              "blockHash": {
+                                "type": "string"
+                              },
+                              "transactionHash": {
+                                "type": "string"
+                              },
+                              "logs": {
+                                "type": "array",
+                                "items": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "transactionIndex": {
+                                        "type": "integer"
+                                      },
+                                      "blockNumber": {
+                                        "type": "integer"
+                                      },
+                                      "transactionHash": {
+                                        "type": "string"
+                                      },
+                                      "address": {
+                                        "type": "string"
+                                      },
+                                      "topics": {
+                                        "type": "array",
+                                        "items": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          }
+                                        ]
+                                      },
+                                      "data": {
+                                        "type": "string"
+                                      },
+                                      "logIndex": {
+                                        "type": "integer"
+                                      },
+                                      "blockHash": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "transactionIndex",
+                                      "blockNumber",
+                                      "transactionHash",
+                                      "address",
+                                      "topics",
+                                      "data",
+                                      "logIndex",
+                                      "blockHash"
+                                    ]
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "transactionIndex": {
+                                        "type": "integer"
+                                      },
+                                      "blockNumber": {
+                                        "type": "integer"
+                                      },
+                                      "transactionHash": {
+                                        "type": "string"
+                                      },
+                                      "address": {
+                                        "type": "string"
+                                      },
+                                      "topics": {
+                                        "type": "array",
+                                        "items": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          }
+                                        ]
+                                      },
+                                      "data": {
+                                        "type": "string"
+                                      },
+                                      "logIndex": {
+                                        "type": "integer"
+                                      },
+                                      "blockHash": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "transactionIndex",
+                                      "blockNumber",
+                                      "transactionHash",
+                                      "address",
+                                      "topics",
+                                      "data",
+                                      "logIndex",
+                                      "blockHash"
+                                    ]
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "transactionIndex": {
+                                        "type": "integer"
+                                      },
+                                      "blockNumber": {
+                                        "type": "integer"
+                                      },
+                                      "transactionHash": {
+                                        "type": "string"
+                                      },
+                                      "address": {
+                                        "type": "string"
+                                      },
+                                      "topics": {
+                                        "type": "array",
+                                        "items": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "string"
+                                          }
+                                        ]
+                                      },
+                                      "data": {
+                                        "type": "string"
+                                      },
+                                      "logIndex": {
+                                        "type": "integer"
+                                      },
+                                      "blockHash": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "transactionIndex",
+                                      "blockNumber",
+                                      "transactionHash",
+                                      "address",
+                                      "topics",
+                                      "data",
+                                      "logIndex",
+                                      "blockHash"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "blockNumber": {
+                                "type": "integer"
+                              },
+                              "confirmations": {
+                                "type": "integer"
+                              },
+                              "cumulativeGasUsed": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "hex": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "hex"
+                                ]
+                              },
+                              "effectiveGasPrice": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "hex": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "hex"
+                                ]
+                              },
+                              "status": {
+                                "type": "integer"
+                              },
+                              "type": {
+                                "type": "integer"
+                              },
+                              "byzantium": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "to",
+                              "from",
+                              "contractAddress",
+                              "transactionIndex",
+                              "gasUsed",
+                              "logsBloom",
+                              "blockHash",
+                              "transactionHash",
+                              "logs",
+                              "blockNumber",
+                              "confirmations",
+                              "cumulativeGasUsed",
+                              "effectiveGasPrice",
+                              "status",
+                              "type",
+                              "byzantium"
+                            ]
+                          },
+                          "tokenId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "address",
+                          "tx",
+                          "receipt",
+                          "tokenId"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "signature",
+                      "payload"
+                    ]
+                  },
+                  "hash": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "url",
+                  "registry",
+                  "uid",
+                  "schema",
+                  "method",
+                  "ghgtoken",
+                  "nft",
+                  "hash"
+                ]
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          },
+          "_all": {
+            "type": "object",
+            "properties": {
+              "signature": {
+                "type": "string",
+                "description": "digital signature of payload property given by issuer"
+              },
+              "payload": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "context": {
+                    "type": "object",
+                    "properties": {
+                      "usage": {
+                        "type": "string"
+                      },
+                      "hash": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "usage",
+                      "hash"
+                    ]
+                  },
+                  "location": {
+                    "type": "object",
+                    "properties": {
+                      "zip": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "meloid": {
+                        "type": "string"
+                      },
+                      "hash": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "zip",
+                      "city",
+                      "country",
+                      "meloid",
+                      "hash"
+                    ]
+                  },
+                  "consumption": {
+                    "type": "object",
+                    "properties": {
+                      "unit": {
+                        "type": "string"
+                      },
+                      "actual": {
+                        "type": "integer"
+                      },
+                      "time": {
+                        "type": "integer"
+                      },
+                      "hash": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "unit",
+                      "actual",
+                      "time",
+                      "hash"
+                    ]
+                  },
+                  "ghg": {
+                    "type": "object",
+                    "properties": {
+                      "factors": {
+                        "type": "object",
+                        "properties": {
+                          "unit": {
+                            "type": "string"
+                          },
+                          "actual": {
+                            "type": "object",
+                            "properties": {
+                              "grid": {
+                                "type": "number"
+                              },
+                              "eco": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "grid",
+                              "eco"
+                            ]
+                          },
+                          "base": {
+                            "type": "object",
+                            "properties": {
+                              "grid": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "grid"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "unit",
+                          "actual",
+                          "base"
+                        ]
+                      },
+                      "base": {
+                        "type": "object",
+                        "properties": {
+                          "unit": {
+                            "type": "string"
+                          },
+                          "grid": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "unit",
+                          "grid"
+                        ]
+                      },
+                      "actual": {
+                        "type": "object",
+                        "properties": {
+                          "unit": {
+                            "type": "string"
+                          },
+                          "grid": {
+                            "type": "integer"
+                          },
+                          "eco": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "unit",
+                          "grid",
+                          "eco"
+                        ]
+                      },
+                      "saving": {
+                        "type": "object",
+                        "properties": {
+                          "unit": {
+                            "type": "string"
+                          },
+                          "grid": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "unit",
+                          "grid"
+                        ]
+                      },
+                      "scope": {
+                        "type": "integer"
+                      },
+                      "hash": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "factors",
+                      "base",
+                      "actual",
+                      "saving",
+                      "scope",
+                      "hash"
+                    ]
+                  },
+                  "_iat": {
+                    "type": "integer"
+                  },
+                  "_iss": {
+                    "type": "string"
+                  },
+                  "_jti": {
+                    "type": "string"
+                  },
+                  "did": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "registry": {
+                        "type": "string"
+                      },
+                      "uid": {
+                        "type": "string"
+                      },
+                      "schema": {
+                        "type": "string"
+                      },
+                      "method": {
+                        "type": "string"
+                      },
+                      "ghgtoken": {
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "type": "string"
+                          },
+                          "certificates": {
+                            "type": "string"
+                          },
+                          "savings": {
+                            "type": "string"
+                          },
+                          "emissions": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "address",
+                          "certificates",
+                          "savings",
+                          "emissions"
+                        ]
+                      },
+                      "nft": {
+                        "type": "object",
+                        "properties": {
+                          "signature": {
+                            "type": "string"
+                          },
+                          "payload": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": "string"
+                              },
+                              "tx": {
+                                "type": "object",
+                                "properties": {
+                                  "nonce": {
+                                    "type": "integer"
+                                  },
+                                  "gasPrice": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "hex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "hex"
+                                    ]
+                                  },
+                                  "gasLimit": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "hex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "hex"
+                                    ]
+                                  },
+                                  "to": {
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "hex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "hex"
+                                    ]
+                                  },
+                                  "data": {
+                                    "type": "string"
+                                  },
+                                  "chainId": {
+                                    "type": "integer"
+                                  },
+                                  "v": {
+                                    "type": "integer"
+                                  },
+                                  "r": {
+                                    "type": "string"
+                                  },
+                                  "s": {
+                                    "type": "string"
+                                  },
+                                  "from": {
+                                    "type": "string"
+                                  },
+                                  "hash": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "null"
+                                  },
+                                  "confirmations": {
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "nonce",
+                                  "gasPrice",
+                                  "gasLimit",
+                                  "to",
+                                  "value",
+                                  "data",
+                                  "chainId",
+                                  "v",
+                                  "r",
+                                  "s",
+                                  "from",
+                                  "hash",
+                                  "type",
+                                  "confirmations"
+                                ]
+                              },
+                              "receipt": {
+                                "type": "object",
+                                "properties": {
+                                  "to": {
+                                    "type": "string"
+                                  },
+                                  "from": {
+                                    "type": "string"
+                                  },
+                                  "contractAddress": {
+                                    "type": "null"
+                                  },
+                                  "transactionIndex": {
+                                    "type": "integer"
+                                  },
+                                  "gasUsed": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "hex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "hex"
+                                    ]
+                                  },
+                                  "logsBloom": {
+                                    "type": "string"
+                                  },
+                                  "blockHash": {
+                                    "type": "string"
+                                  },
+                                  "transactionHash": {
+                                    "type": "string"
+                                  },
+                                  "logs": {
+                                    "type": "array",
+                                    "items": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "transactionIndex": {
+                                            "type": "integer"
+                                          },
+                                          "blockNumber": {
+                                            "type": "integer"
+                                          },
+                                          "transactionHash": {
+                                            "type": "string"
+                                          },
+                                          "address": {
+                                            "type": "string"
+                                          },
+                                          "topics": {
+                                            "type": "array",
+                                            "items": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "data": {
+                                            "type": "string"
+                                          },
+                                          "logIndex": {
+                                            "type": "integer"
+                                          },
+                                          "blockHash": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "transactionIndex",
+                                          "blockNumber",
+                                          "transactionHash",
+                                          "address",
+                                          "topics",
+                                          "data",
+                                          "logIndex",
+                                          "blockHash"
+                                        ]
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "transactionIndex": {
+                                            "type": "integer"
+                                          },
+                                          "blockNumber": {
+                                            "type": "integer"
+                                          },
+                                          "transactionHash": {
+                                            "type": "string"
+                                          },
+                                          "address": {
+                                            "type": "string"
+                                          },
+                                          "topics": {
+                                            "type": "array",
+                                            "items": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "data": {
+                                            "type": "string"
+                                          },
+                                          "logIndex": {
+                                            "type": "integer"
+                                          },
+                                          "blockHash": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "transactionIndex",
+                                          "blockNumber",
+                                          "transactionHash",
+                                          "address",
+                                          "topics",
+                                          "data",
+                                          "logIndex",
+                                          "blockHash"
+                                        ]
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "transactionIndex": {
+                                            "type": "integer"
+                                          },
+                                          "blockNumber": {
+                                            "type": "integer"
+                                          },
+                                          "transactionHash": {
+                                            "type": "string"
+                                          },
+                                          "address": {
+                                            "type": "string"
+                                          },
+                                          "topics": {
+                                            "type": "array",
+                                            "items": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "data": {
+                                            "type": "string"
+                                          },
+                                          "logIndex": {
+                                            "type": "integer"
+                                          },
+                                          "blockHash": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "transactionIndex",
+                                          "blockNumber",
+                                          "transactionHash",
+                                          "address",
+                                          "topics",
+                                          "data",
+                                          "logIndex",
+                                          "blockHash"
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  "blockNumber": {
+                                    "type": "integer"
+                                  },
+                                  "confirmations": {
+                                    "type": "integer"
+                                  },
+                                  "cumulativeGasUsed": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "hex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "hex"
+                                    ]
+                                  },
+                                  "effectiveGasPrice": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "hex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "hex"
+                                    ]
+                                  },
+                                  "status": {
+                                    "type": "integer"
+                                  },
+                                  "type": {
+                                    "type": "integer"
+                                  },
+                                  "byzantium": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "to",
+                                  "from",
+                                  "contractAddress",
+                                  "transactionIndex",
+                                  "gasUsed",
+                                  "logsBloom",
+                                  "blockHash",
+                                  "transactionHash",
+                                  "logs",
+                                  "blockNumber",
+                                  "confirmations",
+                                  "cumulativeGasUsed",
+                                  "effectiveGasPrice",
+                                  "status",
+                                  "type",
+                                  "byzantium"
+                                ]
+                              },
+                              "tokenId": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "address",
+                              "tx",
+                              "receipt",
+                              "tokenId"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "signature",
+                          "payload"
+                        ]
+                      },
+                      "hash": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "registry",
+                      "uid",
+                      "schema",
+                      "method",
+                      "ghgtoken",
+                      "nft",
+                      "hash"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "context",
+                  "location",
+                  "consumption",
+                  "ghg",
+                  "_iat",
+                  "_iss",
+                  "_jti",
+                  "did"
+                ]
+              },
+              "$schema": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "signature",
+              "payload",
+              "$schema"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "context",
+          "location",
+          "consumption",
+          "ghg",
+          "did",
+          "_all"
+        ]
+      }
+    },
+    "required": [
+      "hash",
+      "owner",
+      "context",
+      "did",
+      "presentations"
+    ]
+  }
