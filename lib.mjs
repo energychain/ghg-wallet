@@ -1,13 +1,14 @@
-exports.ghgwallet = async function(options) {
-    const tydids = require("tydids");
-    const axios = require("axios");
+import tydids  from "tydids";
+import axios from "axios";
 
+export default async function(options) {
+ 
     const API_BASE = "https://api.corrently.io";
-
+    
     let app_wallet = {};
-
+    
     if((typeof options == 'undefined')||(typeof options.ethereum == 'undefined')||(options == null)) {
-        app_wallet = tydids.wallet(options);
+        app_wallet = tydids(options);
         app_wallet.app = {};
         app_wallet.app.provider = app_wallet.provider;
         app_wallet.app.signer = app_wallet.provider.getSigner();

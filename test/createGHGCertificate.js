@@ -1,11 +1,11 @@
-const assert = require("assert");
-const lib = require("../lib.js");
+import { strict as assert } from 'node:assert';
+import ghglib from "../lib.mjs";
 
 /**
  * In this context a Wallet is a one to one assignment to an Identity.
  */
 
-describe('Certificate for electricity consumption transaction', function () {
+describe('Certificate for electricity consumption transaction', async function () {
     let test_intermediate = null;
     let test_wallet = null;
     let test_certificate = null;
@@ -18,10 +18,10 @@ describe('Certificate for electricity consumption transaction', function () {
      */
     it('Request Intermediate', async function () {
         this.timeout(35000);
-        const app_wallet = await lib.ghgwallet();
+        const app_wallet = await ghglib(); 
         test_wallet = app_wallet;
 
-        const zip = '69256';
+        const zip = '72072';
         const wh = Math.round(Math.random() * 5000 +100);
         const context = {usage:'Straßenverkehr'};
 
@@ -48,7 +48,7 @@ describe('Certificate for electricity consumption transaction', function () {
      * Remember certificate for validations in next tests
      */
     it('Request Certificate', async function () {
-        this.timeout(35000);
+        this.timeout(55000);
         const certificate = await test_wallet.app.requestCertification(test_intermediate);
         test_certificate = certificate;
         return;
@@ -103,12 +103,16 @@ describe('Certificate for electricity consumption transaction', function () {
      * - savings token is owned by certificate (SSI) and balance is equal to value in intermediate
      * - same for emissions token
      */
-    it('OnChain Consensus ERC20 Token (GHG Savings/Emissions)', async function () {
+    it('OnChain Consensus ERC20 Token GHG Savings', async function () {
         this.timeout(35000);
         let b = await test_wallet.tydids.contracts.GHGSAVINGS.balanceOf(test_certificate.did.payload.uid);
-        assert.equal(b,test_intermediate.payload.ghg.saving.grid);
+        assert.equal(b.toNumber(),test_intermediate.payload.ghg.saving.grid);
+        return;
+    });
+    it('OnChain Consensus ERC20 Token GHG Emissions', async function () {
+        this.timeout(35000);
         let c = await test_wallet.tydids.contracts.GHGEMISSIONS.balanceOf(test_certificate.did.payload.uid);
-        assert.equal(c,test_intermediate.payload.ghg.actual.grid);
+        assert.equal(c.toNumber(),test_intermediate.payload.ghg.actual.grid);
         return;
     });
 });
