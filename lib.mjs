@@ -40,13 +40,18 @@ export default async function(options) {
     let challenge_signature = null;
     let rateTkn = null;
     let apiReqConfig = {}
+    if((typeof options !== 'undefined') && (options !== null) && (typeof options.apitoken !== 'undefined')) {
+        apiReqConfig.headers= {'x-api-token': options.apitoken};
+        options.api = 'https://api.corrently.io';
+    } 
+
     try {
-        const response = await axios.post(options.api+ "/v2.0/tydids/bucket/challenge",{account:app_wallet.address});
+        const response = await axios.post(options.api+ "/v2.0/tydids/bucket/challenge",{account:app_wallet.address},apiReqConfig);
         rateTkn = response.headers["x-corrently-token"];
-        //console.log('Corrently Token',rateTkn);
         challenge = await response.data;
         challenge_signature = await app_wallet.signMessage(challenge);
         apiReqConfig.headers= {'x-api-token': 'tkn_'+challenge};
+        options.apitoken =  'tkn_'+challenge;
     } catch(e) {
         throw "Challenge Request Error (Rate Limit?)";
     } 
