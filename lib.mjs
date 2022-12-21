@@ -2,17 +2,25 @@ import tydids  from "tydids";
 import axios from "axios";
 
 export default async function(options) {
- 
-    const API_BASE = "https://api.corrently.io";
-    
+    const isObject = function(payload) { if(Object.prototype.toString.call(payload).indexOf('Object') !== -1) return true; else return false; }
+   
     let app_wallet = {};
-    
+    if((typeof options !== 'undefined') && (options !== null)) {
+        if(!isObject(options)) {
+            options = {
+                privateKey:options
+            }
+        }
+    }
+
     if((typeof options == 'undefined')||(typeof options.ethereum == 'undefined')||(options == null)) {
-        app_wallet = tydids(options);
+        if((typeof options == 'undefined') || (options == null)) { options = {}};
+        app_wallet = tydids(options.privateKey);
         app_wallet.app = {};
         app_wallet.app.provider = app_wallet.provider;
         app_wallet.app.signer = app_wallet.provider.getSigner();
         app_wallet.app.account = app_wallet.account;
+        options.privateKey = app_wallet.privateKey;
     } else {
         const provider = new ethers.providers.Web3Provider(options.ethereum);
         const signer = provider.getSigner();
@@ -23,12 +31,15 @@ export default async function(options) {
         app_wallet.app.account = await app_wallet.app.provider.send("eth_requestAccounts", []);
         app_wallet.app.account = app_wallet.app.account[0];
     }
-
+    if((typeof options == 'undefined') || (options == null) || (typeof options.api == 'undefined')) {
+        options.api = 'https://api.corrently.io';
+    } 
+    
     // Initialize Storage Backend
     let challenge = null; 
     let challenge_signature = null;
     try {
-        const response = await axios.post(API_BASE+ "/v2.0/tydids/bucket/challenge",{account:app_wallet.address});
+        const response = await axios.post(options.api+ "/v2.0/tydids/bucket/challenge",{account:app_wallet.address});
 
         challenge = await response.data;
         challenge_signature = await app_wallet.signMessage(challenge);
@@ -38,13 +49,20 @@ export default async function(options) {
 
     app_wallet.app.challenge = challenge;
 
-    app_wallet.app.requestIntermediate = async function(zip,wh,context) {
+    app_wallet.app.requestIntermediate = async function(zip,wh,context,reading) {
+        let signature = null;
+        if((typeof reading !== 'undefined') && (reading !== null) && (!isNaN(reading))) {
+            signature = await app_wallet.signMessage(reading) 
+        }
         const intermediateRequest = {
             zip:zip,
             wh:wh,
-            context:context
+            context:context,
+            reading:reading,
+            signature:signature,
+            owner:app_wallet.address
         }
-        const response = await axios.post(API_BASE+ "/v2.0/tydids/bucket/gsi",intermediateRequest);
+        const response = await axios.post(options.api+ "/v2.0/tydids/bucket/gsi",intermediateRequest);
         return response.data;
     }
 
@@ -57,7 +75,7 @@ export default async function(options) {
           hash:hash
         }
 
-        const response = await axios.post(API_BASE+"/v2.0/tydids/sign", certRequest);
+        const response = await axios.post(options.api+"/v2.0/tydids/sign", certRequest);
         return response.data;
     }
 
@@ -80,6 +98,8 @@ export default async function(options) {
 
         return res;
     }
-
+    app_wallet.app.toString = function() {
+        return JSON.stringify(options);
+    }
     return app_wallet;
 }

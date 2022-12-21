@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const lib = require("./lib");
 const fs = require("fs");
 
 const optionDefinitions = [
@@ -37,7 +36,10 @@ const options = commandLineArgs(optionDefinitions)
 
 
 const app = async function() {
-    const app_wallet = await lib.ghgwallet(options.privateKey);
+    const moduletydids = await import('tydids');
+    const tydids = moduletydids.default;
+
+    const app_wallet = await tydids(options.privateKey);
     console.log("Identity",app_wallet.address);
 
     if(typeof options.wh !== 'undefined') {

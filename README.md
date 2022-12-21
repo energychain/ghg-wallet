@@ -10,10 +10,6 @@
 npm install ghg-wallet
 ```
 
-### Use as Command Line Tool (eq. ghg-certRequest)
-```
-npm install -g ghg-wallet
-```
 
 ### Work with Source Code
 ```
@@ -25,30 +21,9 @@ npm test
 
 Hint: `npm test` requires [Mocha JS](https://mochajs.org/) to be installed.
 
-## Usage
-### ghg-certRequest
-Command Line (CLI) script to get a certificate of an electricity consumption in Germany. Detail of the process are described [here](https://corrently.io/books/tydids-trust-framework/page/blockchain-basierte-nachweisfuhrung-der-thg-emission-und-minderung).
-
-Sample usage:
-```
-ghg-certRequest -w 1234 -l 69256
-```
-
-same as if GIT repository is used:
-```
-node ./cli-ghgCertRequest.js -w 1234 -l 69256
-```
-
-#### Arguments
-
-- `-w` Consumed energy from local grid in Watt-Hours (Wh)
-- `-l` Zipcode in Germany (Postleitzahl)
-- `-i` If specified a json file will be written with the intermediate
-- `-c` If specified a json file will be written with the certificate
-- `--privateKey` Private Key to identify with. If omitted a new identity will be generated
-
-
-
+## Features
+- Allows metered and transaction based GHG emission reporting
+- Multi certification backend support (eq. different backend per wallet)
 
 ## Maintainer / Imprint
 <addr>

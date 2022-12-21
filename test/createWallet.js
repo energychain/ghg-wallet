@@ -19,7 +19,15 @@ describe('Basic Wallet Handling', function () {
         return;
     });
 
-    
+    it('Create one wallet twice (has same addess but different challenge)', async function () {
+        this.timeout(25000);
+        const randomWallet1 = await ghglib();
+
+        const randomWallet2 = await ghglib(JSON.parse(randomWallet1.app.toString()));
+        assert.equal(randomWallet1.app.challenge !== randomWallet2.app.challenge, true);
+        assert.equal(randomWallet1.address == randomWallet2.address, true);
+        return;
+    });   
     /**
      * Validate wallet creation is reproducable (using private key)
      */
