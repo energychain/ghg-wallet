@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default async function(options) {
     const isObject = function(payload) { if(Object.prototype.toString.call(payload).indexOf('Object') !== -1) return true; else return false; }
-   
+    
     let app_wallet = {};
     if((typeof options !== 'undefined') && (options !== null)) {
         if(!isObject(options)) {
@@ -38,9 +38,13 @@ export default async function(options) {
     // Initialize Storage Backend
     let challenge = null; 
     let challenge_signature = null;
+    let rateTkn = null;
+    let apiReqConfig = {}
     try {
         const response = await axios.post(options.api+ "/v2.0/tydids/bucket/challenge",{account:app_wallet.address});
-
+        rateTkn = response.headers["x-corrently-token"];
+        apiReqConfig.headers= {'corrently-token': 'tkn_'+rateTkn};
+        //console.log('Corrently Token',rateTkn);
         challenge = await response.data;
         challenge_signature = await app_wallet.signMessage(challenge);
     } catch(e) {
@@ -62,7 +66,7 @@ export default async function(options) {
             signature:signature,
             owner:app_wallet.address
         }
-        const response = await axios.post(options.api+ "/v2.0/tydids/bucket/gsi",intermediateRequest);
+        const response = await axios.post(options.api+ "/v2.0/tydids/bucket/gsi",intermediateRequest,apiReqConfig);
         return response.data;
     }
 
@@ -75,7 +79,7 @@ export default async function(options) {
           hash:hash
         }
 
-        const response = await axios.post(options.api+"/v2.0/tydids/sign", certRequest);
+        const response = await axios.post(options.api+"/v2.0/tydids/sign", certRequest,apiReqConfig);
         return response.data;
     }
 
