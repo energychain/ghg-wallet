@@ -16,7 +16,7 @@ jobs:
       - node/install
 
 workflows:
-  example-workflow:
+  tydids-ghg:
     jobs:
       - install-job
       - node/test
