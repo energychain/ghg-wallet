@@ -43,10 +43,10 @@ export default async function(options) {
     try {
         const response = await axios.post(options.api+ "/v2.0/tydids/bucket/challenge",{account:app_wallet.address});
         rateTkn = response.headers["x-corrently-token"];
-        apiReqConfig.headers= {'corrently-token': 'tkn_'+rateTkn};
         //console.log('Corrently Token',rateTkn);
         challenge = await response.data;
         challenge_signature = await app_wallet.signMessage(challenge);
+        apiReqConfig.headers= {'x-api-token': 'tkn_'+challenge};
     } catch(e) {
         throw "Challenge Request Error (Rate Limit?)";
     } 
