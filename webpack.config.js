@@ -64,6 +64,8 @@ export default {
       path.resolve(process.cwd()+"/static/", "index.html")
     ],
     compress: true,
+    host: '0.0.0.0',
+    allowedHosts: ['localhost', '.gitpod.io'],
     port: process.env.PORT || 9090,
     hot: true,
   },
