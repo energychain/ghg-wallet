@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "build": "webpack --config webpack.config.js --mode production",
-    "dev": "webpack-dev-server --open --config webpack.config.js --mode development"
+    "dev": "webpack-dev-server --open --config webpack.config.js --mode development --host 0.0.0.0 --disable-host-check"
   },
   "type": "module",
   "repository": {

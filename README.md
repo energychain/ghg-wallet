@@ -3,6 +3,8 @@
 
 ![npm](https://img.shields.io/npm/dw/ghg-wallet) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/energychain/ghg-wallet/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/energychain/ghg-wallet/tree/main) [![CO2Offset](https://api.corrently.io/v2.0/ghgmanage/statusimg?host=ghg-wallet&svg=1)](https://co2offset.io/badge.html?host=ghg-wallet)
 
+[Test on GitPod](https://gitpod.io/#https://github.com/energychain/ghg-wallet)
+
 ## Installation
 
 ### Use as Library in your Code
