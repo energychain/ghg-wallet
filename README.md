@@ -10,7 +10,6 @@
 npm install ghg-wallet
 ```
 
-
 ### Work with Source Code
 ```
 git clone https://github.com/energychain/ghg-wallet.git
@@ -20,6 +19,12 @@ npm test
 ```
 
 Hint: `npm test` requires [Mocha JS](https://mochajs.org/) to be installed.
+
+### Use Default UI via Dev-Server
+```
+npm run dev
+```
+
 
 ## Features
 - Allows metered and transaction based GHG emission reporting
