@@ -57,6 +57,9 @@ export default async function(options) {
             if(typeof options.onPersist !== 'undefined') {
                 options.onPersist(storage);
             }
+            if(typeof options.onUpdate !== 'undefined') {
+                options.onUpdate(key,value,child);
+            }
     };
 
     if((typeof options !== 'undefined') && (options !== null) && (typeof options.apitoken !== 'undefined')) {

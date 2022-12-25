@@ -51,7 +51,8 @@ export default {
 
     // Inject styles and scripts into the HTML
     new HtmlWebpackPlugin({
-      template: path.resolve(process.cwd()+"/static/", "index.html")
+      template: path.resolve(process.cwd()+"/static/", "index.html"),
+      template: path.resolve(process.cwd()+"/static/", "dev.html")
     })
   ],
 
@@ -61,11 +62,12 @@ export default {
       directory: path.resolve(process.cwd()+"/static/")
     },
     watchFiles: [
-      path.resolve(process.cwd()+"/static/", "index.html")
+      path.resolve(process.cwd()+"/static/", "index.html"),
+      path.resolve(process.cwd()+"/static/", "dev.html")
     ],
     compress: true,
     host: '0.0.0.0',
-    allowedHosts: ['localhost', '.gitpod.io'],
+    allowedHosts: ['0.0.0.0','localhost', '.gitpod.io'],
     port: process.env.PORT || 9090,
     hot: true,
   },
