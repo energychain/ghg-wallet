@@ -217,7 +217,7 @@ export default async function(options) {
     }
 
     app_wallet.app.transferCertificateOwnership = async function(to,certificate) {
-        return await app_wallet.tydids.contracts.GHGCERTIFICATES.safeTransferFrom(app_wallet.address,to,certificate.did.payload.nft.payload.tokenId);
+        return await app_wallet.tydids.contracts.GHGCERTIFICATES.transferFrom(app_wallet.address,to,certificate.did.payload.nft.payload.tokenId);
     }
 
     app_wallet.app.toString = function() {

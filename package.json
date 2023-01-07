@@ -1,6 +1,6 @@
 {
   "name": "ghgwallet",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "DID/SSI based handling of greenhouse gas emissions and savings",
   "main": "lib.mjs",
   "scripts": {
