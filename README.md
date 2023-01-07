@@ -1,7 +1,7 @@
 # ghg-wallet
 **DID/SSI based handling of greenhouse gas emissions and savings**
 
-![npm](https://img.shields.io/npm/dw/ghg-wallet) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/energychain/ghg-wallet/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/energychain/ghg-wallet/tree/main) [![CO2Offset](https://api.corrently.io/v2.0/ghgmanage/statusimg?host=ghg-wallet&svg=1)](https://co2offset.io/badge.html?host=ghg-wallet)
+![npm](https://img.shields.io/npm/dw/ghgwallet) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/energychain/ghg-wallet/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/energychain/ghg-wallet/tree/main) [![CO2Offset](https://api.corrently.io/v2.0/ghgmanage/statusimg?host=ghgwallet&svg=1)](https://co2offset.io/badge.html?host=ghgwallet)
 
 [Test on GitPod](https://gitpod.io/#https://github.com/energychain/ghg-wallet)
 
@@ -9,7 +9,7 @@
 
 ### Use as Library in your Code
 ```
-npm install ghg-wallet
+npm install ghgwallet
 ```
 
 ### Work with Source Code

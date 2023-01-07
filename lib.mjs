@@ -206,6 +206,29 @@ export default async function(options) {
         return vp;
     };
 
+    // Indicates if this wallet owns a certificate (Blockchain side)
+    app_wallet.app.isCertificateOwned = async function(certificate) {
+        const owner = await app_wallet.tydids.contracts.GHGCERTIFICATES.ownerOf(certificate.did.payload.nft.payload.tokenId); 
+        if(owner.toLowerCase() == app_wallet.address.toLowerCase()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    app_wallet.app.transferCertificateOwnership = async function(to,certificate) {
+        if(!Array.isArray(certificate)) {
+            certificate=[certificate];
+        }
+        let tokenIds  = [];
+        for(let i=0;i<certificate.length;i++) {
+            if(await app_wallet.app.isCertificateOwned(certificate[i])) {
+                tokenIds.push(certificate[i].did.payload.nft.payload.tokenId)
+            }
+        }
+        return await app_wallet.tydids.contracts.GHGCERTIFICATES.transferFromBulk(to,tokenIds);
+    }
+
     app_wallet.app.toString = function() {
         return JSON.stringify({options:options,storage:storage});
     }
