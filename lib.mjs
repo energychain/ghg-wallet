@@ -215,18 +215,9 @@ export default async function(options) {
             return false;
         }
     }
-    
+
     app_wallet.app.transferCertificateOwnership = async function(to,certificate) {
-        if(!Array.isArray(certificate)) {
-            certificate=[certificate];
-        }
-        let tokenIds  = [];
-        for(let i=0;i<certificate.length;i++) {
-            if(await app_wallet.app.isCertificateOwned(certificate[i])) {
-                tokenIds.push(certificate[i].did.payload.nft.payload.tokenId)
-            }
-        }
-        return await app_wallet.tydids.contracts.GHGCERTIFICATES.transferFromBulk(to,tokenIds);
+        return await app_wallet.tydids.contracts.GHGCERTIFICATES.safeTransferFrom(app_wallet.address,to,certificate.did.payload.nft.payload.tokenId);
     }
 
     app_wallet.app.toString = function() {
