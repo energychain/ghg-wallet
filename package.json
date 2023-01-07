@@ -1,6 +1,6 @@
 {
   "name": "ghgwallet",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "DID/SSI based handling of greenhouse gas emissions and savings",
   "main": "lib.mjs",
   "scripts": {
@@ -34,7 +34,7 @@
     "axios": "^0.21.0",
     "command-line-args": "^5.2.1",
     "ethers": "^5.7.2",
-    "tydids": "^1.1.4"
+    "tydids": "^1.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
