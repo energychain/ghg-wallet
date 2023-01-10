@@ -237,6 +237,9 @@ export default async function(options) {
         }
         return aggregation;
     }
+    app_wallet.app.getAggregationContract = function(address) {
+        return new ethers.Contract(address, app_wallet.tydids.deployment.ABIS.GHGAGGREGATION, app_wallet);
+    }
 
     app_wallet.app.toString = function() {
         return JSON.stringify({options:options,storage:storage});
