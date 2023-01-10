@@ -222,7 +222,17 @@ export default async function(options) {
 
     app_wallet.app.transferCertificateToAggregation = async function(to,certificate) {
         await app_wallet.tydids.contracts.GHGCERTIFICATES.transferFrom(app_wallet.address,to,certificate.did.payload.nft.payload.tokenId);
-        const aggregation = new ethers.Contract(to, app_wallet.tydids.deployment.ABIS.GHGAGGREGATION, app_wallet);
+        let aggregation = null;
+        let i=0;
+        while((aggregation==null) && (i < 20)) {
+            try {
+                aggregation = new ethers.Contract(to, app_wallet.tydids.deployment.ABIS.GHGAGGREGATION, app_wallet);
+            } catch(e) {
+                i++;
+                await new Promise(r => setTimeout(r, 1000 + Math.round(Math.random()*500)));
+            }
+        }
+         
         return await aggregation.addNFT(certificate.did.payload.nft.payload.tokenId);
     }
 
