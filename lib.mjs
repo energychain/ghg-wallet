@@ -232,8 +232,17 @@ export default async function(options) {
                 await new Promise(r => setTimeout(r, 1000 + Math.round(Math.random()*500)));
             }
         }
-         
-        return await aggregation.addNFT(certificate.did.payload.nft.payload.tokenId);
+        aggregation = null;
+        i=0;
+        while((aggregation==null) && (i < 20)) {
+            try {
+                aggregation = await aggregation.addNFT(certificate.did.payload.nft.payload.tokenId);
+            } catch(e) {
+                i++;
+                await new Promise(r => setTimeout(r, 1000 + Math.round(Math.random()*500)));
+            }
+        }     
+        return aggregation;
     }
 
     app_wallet.app.toString = function() {
