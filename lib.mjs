@@ -221,7 +221,12 @@ export default async function(options) {
     }
 
     app_wallet.app.transferCertificateToAggregation = async function(to,certificate) {
-        await app_wallet.tydids.contracts.GHGCERTIFICATES.transferFrom(app_wallet.address,to,certificate.did.payload.nft.payload.tokenId);
+        // try to transfer Ownership - as it might have been already transfered bevore
+        try {
+            await app_wallet.tydids.contracts.GHGCERTIFICATES.transferFrom(app_wallet.address,to,certificate.did.payload.nft.payload.tokenId);
+        } catch(e) {
+            console.log("Failed to transferFrom",e);
+        }
         let sc_aggregation = new ethers.Contract(to, app_wallet.tydids.deployment.ABIS.GHGAGGREGATION, app_wallet);
         let aggregation = null;
         let i=0;
