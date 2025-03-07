@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/energychain/ghg-wallet#readme",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^1.8.2",
     "command-line-args": "^5.2.1",
     "ethers": "^5.7.2",
     "tydids": "^1.1.8"
